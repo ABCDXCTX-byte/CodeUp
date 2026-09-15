@@ -1,0 +1,160 @@
+﻿/* ==========================================================================
+   CodeUp鐮佷笂 路 bce-completers.css 鈥?浠ｇ爜鑱旀兂琛ュ叏闈㈡澘鏍峰紡
+   娣辫壊/娴呰壊鍙屼富棰橈紝鍝佺墝鑹查珮浜紝鍦嗚锛屾粴鍔ㄦ潯缇庡寲
+   ========================================================================== */
+
+/* ===== 琛ュ叏闈㈡澘 ===== */
+.ace_autocomplete {
+  background: var(--code-bg) !important;
+  color: var(--code-fg) !important;
+  border: 1px solid var(--code-line) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.2) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  width: 340px !important;
+  z-index: 9999 !important;
+  overflow: hidden !important;
+}
+.ace_autocomplete .ace_list {
+  background: transparent !important;
+  padding: 4px 0 !important;
+  max-height: 280px !important;
+  overflow-y: auto !important;
+}
+.ace_autocomplete .ace_list::-webkit-scrollbar { width: 6px; }
+.ace_autocomplete .ace_list::-webkit-scrollbar-thumb { background: var(--code-gutter); border-radius: 3px; }
+.ace_autocomplete .ace_completion-meta {
+  color: var(--code-gutter) !important;
+  font-size: 11px !important;
+  opacity: .85 !important;
+  float: right !important;
+  margin-right: 8px !important;
+}
+.ace_autocomplete .ace_completion-highlight {
+  color: var(--brand-300) !important;
+  font-weight: 600 !important;
+}
+.ace_autocomplete .ace_selected {
+  background: color-mix(in srgb, var(--brand-500) 22%, transparent) !important;
+  color: var(--code-fg) !important;
+  border-left: 2px solid var(--brand-400) !important;
+  margin-left: -1px !important;
+}
+
+/* ===== 鏂囨。鎻愮ず ===== */
+.ace_doc-tooltip {
+  background: var(--code-bg) !important;
+  color: var(--code-fg) !important;
+  border: 1px solid var(--code-line) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12.5px !important;
+  padding: 10px 12px !important;
+  max-width: 420px !important;
+  line-height: 1.6 !important;
+  z-index: 9999 !important;
+}
+.ace_doc-tooltip b { color: var(--brand-300); font-weight: 600; }
+
+/* ===== 娴呰壊涓婚閫傞厤 ===== */
+html:not([data-theme="dark"]) .ace_autocomplete {
+  box-shadow: 0 8px 24px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.08) !important;
+}
+html:not([data-theme="dark"]) .ace_autocomplete .ace_completion-highlight { color: var(--brand-600) !important; }
+html:not([data-theme="dark"]) .ace_autocomplete .ace_selected { background: color-mix(in srgb, var(--brand-500) 14%, transparent) !important; }
+html:not([data-theme="dark"]) .ace_doc-tooltip { box-shadow: 0 8px 24px rgba(0,0,0,.12) !important; }
+html:not([data-theme="dark"]) .ace_doc-tooltip b { color: var(--brand-600); }
+
+/* ===== Comprehensive Completer Animations ===== */
+
+/* Completer popup - smooth entrance */
+.ace_autocomplete {
+  animation: scaleIn var(--smooth-fast) var(--smooth-spring) both !important;
+  transform-origin: top left !important;
+  transition: box-shadow var(--smooth-fast) var(--smooth-ease-out),
+              border-color var(--smooth-fast) var(--smooth-ease-out) !important;
+}
+
+/* Completer list - smooth */
+.ace_autocomplete .ace_list {
+  transition: background-color var(--smooth-fast) var(--smooth-ease-out);
+}
+
+/* Completer items - comprehensive smooth */
+.ace_autocomplete .ace_completion-highlight,
+.ace_autocomplete .ace_line {
+  transition: background-color var(--smooth-fast) var(--smooth-ease-out),
+              color var(--smooth-fast) var(--smooth-ease-out),
+              padding-left var(--smooth-fast) var(--smooth-spring),
+              transform var(--smooth-fast) var(--smooth-spring);
+}
+.ace_autocomplete .ace_line:hover {
+  padding-left: 16px;
+  transform: translateX(2px);
+}
+.ace_autocomplete .ace_line:active {
+  transform: scale(0.98);
+}
+
+/* Selected item - smooth */
+.ace_autocomplete .ace_selected {
+  transition: background-color var(--smooth-fast) var(--smooth-ease-out),
+              color var(--smooth-fast) var(--smooth-ease-out);
+}
+
+/* Meta info - smooth */
+.ace_autocomplete .ace_rightAlignedText {
+  transition: color var(--smooth-fast) var(--smooth-ease-out),
+              opacity var(--smooth-fast) var(--smooth-ease-out);
+}
+
+/* Scrollbar - smooth */
+.ace_autocomplete::-webkit-scrollbar {
+  width: 6px;
+}
+.ace_autocomplete::-webkit-scrollbar-thumb {
+  transition: background-color var(--smooth-fast) var(--smooth-ease-out),
+              border-radius var(--smooth-fast) var(--smooth-ease-out);
+  border-radius: 3px;
+}
+.ace_autocomplete::-webkit-scrollbar-thumb:hover {
+  background-color: var(--brand-500, #0ea5e9);
+}
+
+/* Doc tooltip - smooth */
+.ace_doc-tooltip {
+  animation: fadeIn var(--smooth-fast) var(--smooth-ease-out) both !important;
+  transition: box-shadow var(--smooth-fast) var(--smooth-ease-out),
+              border-color var(--smooth-fast) var(--smooth-ease-out) !important;
+}
+
+/* Command palette items - smooth stagger */
+.bce-pal-item {
+  transition: background-color var(--smooth-fast) var(--smooth-ease-out),
+              color var(--smooth-fast) var(--smooth-ease-out),
+              padding-left var(--smooth-fast) var(--smooth-spring),
+              transform var(--smooth-fast) var(--smooth-spring);
+}
+.bce-pal-item:hover {
+  padding-left: 24px;
+  transform: translateX(2px);
+}
+.bce-pal-item:active {
+  transform: scale(0.98);
+}
+.bce-pal-item.selected {
+  transition: background-color var(--smooth-fast) var(--smooth-ease-out),
+              color var(--smooth-fast) var(--smooth-ease-out);
+}
+
+/* Palette input - smooth focus */
+.bce-pal-input {
+  transition: border-color var(--smooth-normal) var(--smooth-spring),
+              box-shadow var(--smooth-normal) var(--smooth-spring),
+              background-color var(--smooth-fast) var(--smooth-ease-out);
+}
+.bce-pal-input:focus {
+  outline: none;
+}
